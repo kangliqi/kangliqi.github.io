@@ -1,10 +1,10 @@
 ## Welcome to my blog
 
 - 设计原则
-  - [面向对象](design-pattern/面向对象.md)
-  - [单一职责原则](design-pattern/单一职责原则.md)
-  - [开闭原则](design-pattern/开闭原则.md)
-  - [里式替换原则](design-pattern/里式替换原则.md)
+  - [面向对象](design-pattern/oop.md)
+  - [单一职责原则](design-pattern/srp.md)
+  - [开闭原则](design-pattern/ocp.md)
+  - [里式替换原则](design-pattern/lsp.md)
 
 - 算法
 

@@ -62,6 +62,7 @@
 ### 系统设计
 
 ### 容器与云
+  - [Kubernetes 安装](cloud-native/install-kubernetes.md)
 
 ### 项目实战
   - [cloud-demo —— Spring Cloud](https://github.com/kangliqi/cloud-demo)

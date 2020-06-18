@@ -55,7 +55,7 @@
 ### 视音频编解码
 - [视音频基础](video-audio/视音频基础.md)
 - [视音频编解码基础](video-audio/视音频编解码基础.md)
-- [FFmpeg CLI工具](video-audio/ffmpeg-cli.md)
+- [FFmpeg CLI 工具](video-audio/ffmpeg-cli.md)
 
 ### 数据库
 

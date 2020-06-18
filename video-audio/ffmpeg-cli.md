@@ -353,7 +353,7 @@ ffmpeg -i INPUT -c:v libx264 -preset slow -crf 22 -x264-params keyint=123:min-ke
 
 ##### CBR (Constant Bit Rate)
 
-没有本地的或真正的CBR模式，但是您可以通过调整一遍平均比特率编码器的参数来“模拟”恒定比特率设置：
+没有原生的或真正的CBR模式，但是您可以通过调整一遍平均比特率编码器的参数来“模拟”恒定比特率设置：
 
 ```shell
 ffmpeg -i input.mp4 -c:v libx264 -x264-params "nal-hrd=cbr" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M output.ts

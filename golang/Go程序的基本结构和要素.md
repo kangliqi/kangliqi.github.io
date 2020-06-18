@@ -171,7 +171,7 @@ func Sum(a, b int) int { return a + b }
 对于大括号 {} 的使用规则在任何时候都是相同的（如：if 语句等）。
 
 因此符合规范的函数一般写成如下的形式：
-```
+```go
 func functionName(parameter_list) (return_value_list) {
    …
 }
@@ -197,7 +197,7 @@ fmt.Println（"hello, world"）
 当被调用函数的代码执行到结束符 } 或返回语句时就会返回，然后程序继续执行调用该函数之后的代码。
 
 ## 注释
-```
+```go
 package main
 
 import "fmt" // Package implementing formatted I/O.

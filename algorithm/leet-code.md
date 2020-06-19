@@ -143,3 +143,4 @@ func decodeString(s string) string {
 	return result
 }
 ```
+完整代码可以查看[这里](https://github.com/kangliqi/algorithms/blob/master/src/leetcode/decode_string.go)

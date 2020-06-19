@@ -18,6 +18,7 @@
 - 堆
 - 图
 - 字符串
+- [Leet Code 解题](algorithm/leet-code.md)
 
 ### 面向对象
 - [面向对象](design-pattern/oop.md)

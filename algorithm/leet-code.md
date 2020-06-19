@@ -37,10 +37,10 @@ func isPalindrome(s string) bool {
 			j--
 		}
 
-    // 如果是空字符串
-    if i >= len(str) || j < 0 {
-        return true
-    }
+		// 如果是空字符串
+		if i >= len(str) || j < 0 {
+			return true
+		}
 		if str[i] != str[j] {
 			return false
 		}

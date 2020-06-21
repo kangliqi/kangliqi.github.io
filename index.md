@@ -8,11 +8,10 @@
 
 ### 算法
 - [复杂度分析](algorithm/复杂度分析.md)
-- 数组
-- 链表
+- [数组 - 排序&查找算法](algorithm/sort.md)
+- [链表 - 两种跳表的实现](algorithm/skip-list.md)
 - 栈
 - 队列
-- 跳表
 - 散列表
 - 二叉树
 - 堆

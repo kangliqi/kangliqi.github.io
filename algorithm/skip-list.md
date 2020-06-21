@@ -182,7 +182,7 @@
 
 ## 链表 + 数组法（优化方案）
 
-参考文献：https://ticki.github.io/blog/skip-lists-done-right/
+参考文献：[Skip Lists: Done Right](https://ticki.github.io/blog/skip-lists-done-right/)
 
 实现思路：
 
@@ -281,7 +281,7 @@
 
 - 删除
 
-删除元素的核心思想是使用一个数组来记录查询时所走过的路径，实现快速找到要删除的索引
+    删除元素的核心思想是使用一个数组来记录查询时所走过的路径，实现快速找到要删除的索引
 
     ```go
     // Delete a value from skip list

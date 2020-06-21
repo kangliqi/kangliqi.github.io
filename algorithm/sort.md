@@ -132,6 +132,8 @@
 
 ## 快速排序
 
+- **代码实现**
+
     ```go
     // QuickSort an array
     // arr: The array to sort
@@ -238,6 +240,8 @@
     ```
 
 ### 优化版
+
+- **代码实现**
 
     ```go
     // BinarySearch a value from arr

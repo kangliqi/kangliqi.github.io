@@ -109,7 +109,8 @@
         queue.PushBack(node)
 
         for queue.Len() > 0 {
-            node = queue.Front().Value.(*Node)
+            element := queue.Front()
+            node = queue.Remove(element).(*Node)
             print(node)
 
             if node.left != nil {
@@ -131,8 +132,5 @@
 <img src="../resource/img/f3bb11b6d4a18f95aa19e11f22b99bae.jpg"/>
 
 - **二叉查找树的查找**
-
-    
-
 - **二叉查找树的插入**
 - **二叉查找树的删除**

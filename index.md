@@ -4,19 +4,28 @@
 
 ### 操作系统
 
+- Linux内核 - 启动过程
+- Linux内核 - 内存管理
+- Linux内核 - 进程管理
+- Linux内核 - 进程调度
+- Linux内核 - 文件系统
+
 ### 计算机网络
 
 ### 算法
 - [复杂度分析](algorithm/复杂度分析.md)
 - [数组 - 排序&查找算法](algorithm/sort.md)
 - [链表 - 两种跳表的实现](algorithm/skip-list.md)
-- 栈
-- 队列
-- 散列表
-- [二叉树 - 二叉树&二叉搜索树](algorithm/binary-tree.md)
-- 堆
-- 图
-- 字符串
+- 栈 - 实现操作的撤销、重做
+- 队列 - 生产者&消费者
+- 散列表 - 一致性哈希
+- 散列表 - BloomFilter
+- [二叉树 - 基础概念&二叉搜索树](algorithm/binary-tree.md)
+- 二叉树 - 实现一颗红黑树
+- 堆 - 堆&堆排序
+- 堆 - 堆的几种应用与实现
+- 图 - 广度优先BFS&深度优先DFS
+- 字符串 - BM算法&KMP算法
 - [Leet Code 解题](algorithm/leet-code.md)
 
 ### 面向对象
@@ -49,8 +58,7 @@
 ### Golang
 - Go 基础
   - [Go 程序的基本结构和要素](golang/Go程序的基本结构和要素.md)
-
-### 领域驱动设计
+  - Goroutine原理
 
 ### 视音频编解码
 - [视音频基础](video-audio/视音频基础.md)
@@ -62,7 +70,7 @@
 ### 系统设计
 
 ### 容器与云
-  - [Kubernetes 安装](cloud-native/install-kubernetes.md)
+- [Kubernetes 安装](cloud-native/install-kubernetes.md)
 
 ### 项目实战
-  - [cloud-demo —— Spring Cloud](https://github.com/kangliqi/cloud-demo)
+- [cloud-demo —— Spring Cloud](https://github.com/kangliqi/cloud-demo)

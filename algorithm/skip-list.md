@@ -6,7 +6,7 @@
   - [链表 + 数组法（优化方案）](#链表--数组法优化方案)
     - [代码实现](#代码实现-1)
 
-跳表的基本思想这里就不介绍了，推荐去看 [原本论文](ftp://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf)，或者这里也有一篇不错的中文博客：https://lotabout.me/2018/skip-list/
+跳表的基本思想这里就不介绍了，推荐去看 [原本论文](https://www.epaperpress.com/sortsearch/download/skiplist.pdf)，或者这里也有一篇不错的[中文博客](https://lotabout.me/2018/skip-list/)
 
 这里主要是用Go语言实现了两种版本的跳表，完整的代码可以查看我的 [Github](https://github.com/kangliqi/algorithms/tree/master/src/linked)
 

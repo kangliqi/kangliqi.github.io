@@ -255,3 +255,29 @@
         return true
     }
     ```
+
+- **二叉查找树遍历**
+
+    二分查找树还有一个重要的特性，就是**中序遍历二叉查找树，可以输出有序的数据序列，时间复杂度是 O(n)**，非常高效。因此，二叉查找树也叫作二叉排序树。
+
+    ```go
+    // Sorted the binary search tree to an array
+    func (st *SearchTree) Sorted() []int {
+        arr := make([]int, st.size)
+        index := 0
+        innerTraversal(st.root, arr, &index)
+
+        return arr
+    }
+
+    func innerTraversal(root *Node, arr []int, index *int) {
+        if root == nil {
+            return
+        }
+
+        innerTraversal(root.left, arr, index)
+        arr[*index] = root.data
+        *index++
+        innerTraversal(root.right, arr, index)
+    }
+    ```

@@ -6,6 +6,10 @@
   - [链表 + 数组法（优化方案）](#链表--数组法优化方案)
     - [代码实现](#代码实现-1)
 
+跳表的基本思想这里就不介绍了，推荐去看 [原本论文](ftp://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf)，或者这里也有一篇不错的中文博客：https://lotabout.me/2018/skip-list/
+
+这里主要是用Go语言实现了两种版本的跳表，完整的代码可以查看我的 [Github](https://github.com/kangliqi/algorithms/tree/master/src/linked)
+
 ## 链表法
 
 此方法理解起来容易，但是实现起来稍有点复杂，并且空间利用率没有下面方法高，并不推荐使用
@@ -45,9 +49,9 @@
     ```go
     // SkipNode is a skip list node
     type SkipNode struct {
-        // extends linked list node
+        // Next node
         next *SkipNode
-        // down point to
+        // Down node
         down *SkipNode
 
         data int
@@ -55,7 +59,7 @@
 
     // SkipList is a list implement by Linked list
     type SkipList struct {
-        // extends from linked list
+        // SkipList index heads
         heads []*SkipNode
 
         size       int
@@ -177,6 +181,13 @@
         sl.resizeLevelCount()
         sl.size--
         return true
+    }
+
+    func (sl *SkipList) resizeLevelCount() {
+        level := sl.levelCount - 1
+        for ; level >= 0 && sl.heads[level].next == nil; level-- {
+            sl.levelCount--
+        }
     }
     ```
 
@@ -311,5 +322,13 @@
         csl.resizeLevelCount()
         csl.size--
         return true
+    }
+
+    // Resize level count
+    func (csl *CacheSkipList) resizeLevelCount() {
+        head := csl.head
+        for csl.levelCount > 1 && head.cacheNodes[csl.levelCount-1] == nil {
+            csl.levelCount--
+        }
     }
     ```

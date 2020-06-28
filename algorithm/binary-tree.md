@@ -131,6 +131,127 @@
 
 <img src="../resource/img/f3bb11b6d4a18f95aa19e11f22b99bae.jpg"/>
 
+下面为具体的代码实现，完整的代码可以查看我的[Github](https://github.com/kangliqi/algorithms/blob/master/src/tree/search_tree.go)
+
 - **二叉查找树的查找**
+
+    如果查找的数据比根节点要小，那就在左子树中递归查找；如果要查找的数据比根节点要大，那就在右子树中递归查找；直到要查找的数据和根节点一样大，或者没有找到，则返回
+
+    ```go
+    // Find a value from binary search tree
+    func (st *SearchTree) Find(value int) *Node {
+        node := st.root
+        for node != nil {
+            if value < node.data {
+                node = node.left
+            } else if value > node.data {
+                node = node.right
+            } else {
+                return node
+            }
+        }
+        return nil
+    }
+    ```
+
 - **二叉查找树的插入**
+
+    插入的过程和查找有点类似，新插入的数据一般都是在叶子节点上，所以我们最主要是要遍历找到要插入的位置
+
+    如果要插入的数据比节点的数据要小，并且节点的左子树为空，就将新数据直接插入到左子节点的位置，如果不为空，就递归遍历左子树查找插入位置；如果要插入的数据比节点的数据要大，并且节点的右子树为空，就将新数据直接插入到右子节点的位置，如果不为空，就递归遍历右子树查找插入位置。
+
+    ```go
+    // Insert a value to binary search tree
+    func (st *SearchTree) Insert(value int) {
+        newNode := &Node{data: value}
+        if st.root == nil {
+            st.root = newNode
+            st.size = 1
+            return
+        }
+
+        node := st.root
+        for node != nil {
+            if value < node.data {
+                // insert if left child is null
+                if node.left == nil {
+                    node.left = newNode
+                    st.size++
+                    break
+                }
+                node = node.left
+            } else if value > node.data {
+                // insert if right child is null
+                if node.right == nil {
+                    node.right = newNode
+                    st.size++
+                    break
+                }
+                node = node.right
+            } else {
+                break
+            }
+        }
+    }
+    ```
+
 - **二叉查找树的删除**
+
+    二叉查找树的删除稍微复杂一些，针对要删除的子节点个数不同，需要分三种情况来处理。
+
+    第一种情况是，如果要删除的节点没有子节点，我们只需要将父节点中，指向要删除的节点的指针置为空就可以了。
+
+    第二种情况是，如果要删除的节点只有一个节点，我们只需要更新父节点中，指向要删除节点的指针，让它指向要删除节点的子节点就可以了。
+
+    第三种情况比较复杂，当删除的节点有两个子节点时，我们需要找到这个节点的右子树中最小的节点，把它替换到要删除的节点上。然后再删除掉这个最小的节点（最小的节点肯定没有左子节点）
+
+    ```go
+    // Delete a value from binary search tree
+    func (st *SearchTree) Delete(value int) bool {
+        // Find the node
+        node := st.root
+        var parent *Node
+        for node != nil && node.data != value {
+            parent = node
+            if value < node.data {
+                node = node.left
+            } else if value > node.data {
+                node = node.right
+            }
+        }
+        if node == nil {
+            return false
+        }
+
+        // The node has two children
+        if node.left != nil && node.right != nil {
+            min := node.left
+            minParent := node
+            for min.left != nil {
+                minParent, min = min, min.left
+            }
+
+            node.data = min.data          // Exchange min data to current node
+            node, parent = min, minParent // min node to delete
+        }
+
+        // The node has one or none children
+        var child *Node
+        if node.left != nil {
+            child = node.left
+        } else {
+            child = node.right
+        }
+
+        // remove the node
+        if parent == nil {
+            st.root = nil
+        } else if parent.left == node {
+            parent.left = child
+        } else {
+            parent.right = child
+        }
+        st.size--
+        return true
+    }
+    ```

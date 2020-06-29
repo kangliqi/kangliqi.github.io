@@ -27,7 +27,7 @@
 
 ## 红黑树的实现
 
-基本的数据结构与操作
+基本的数据结构与操作，完整代码可以查看我的 [Github](https://github.com/kangliqi/algorithms/blob/master/src/tree/red_black_tree.go)
 
 ```go
 // RBNode is red-black tree rb-node

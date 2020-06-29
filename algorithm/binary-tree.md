@@ -131,7 +131,7 @@
 
 <img src="../resource/img/f3bb11b6d4a18f95aa19e11f22b99bae.jpg"/>
 
-下面为具体的代码实现，完整的代码可以查看我的[Github](https://github.com/kangliqi/algorithms/blob/master/src/tree/search_tree.go)
+下面为具体的代码实现，完整的代码可以查看我的[Github](https://github.com/kangliqi/algorithms/blob/master/src/tree/binary_search_tree.go)
 
 - **二叉查找树的查找**
 

@@ -176,14 +176,15 @@ func uncle(rbn *RBNode) *RBNode {
         }
 
         // Repair the tree
-        insertRepairTree(node)
+        insertRepairTree(newNode)
 
         // Find the new root
-        root := node
+        root := newNode
         for root.parent != nil {
             root = root.parent
         }
         rbt.root = root
+        rbt.size++
     }
     ```
 
@@ -194,7 +195,19 @@ func uncle(rbn *RBNode) *RBNode {
     ```go
     // Repair the tree, return the new root
     func insertRepairTree(node *RBNode) {
-
+        if parent(node) == nil {
+            node.color = BLACK
+        } else if parent(node).color == BLACK {
+            // Nothing to do
+        } else if uncle(node) != nil {
+            if uncle(node).color == RED {
+                insertCase1(node)
+            } else if parent(node).right == node {
+                insertCase2(node)
+            } else if parent(node).left == node {
+                insertCase3(node)
+            }
+        }
     }
     ```
 
@@ -211,7 +224,11 @@ func uncle(rbn *RBNode) *RBNode {
 - 代码实现
     ```go
     func insertCase1(node *RBNode) {
+        parent(node).color = BLACK
+        uncle(node).color = BLACK
+        grandParent(node).color = RED
 
+        insertRepairTree(grandParent(node))
     }
     ```
 
@@ -225,7 +242,9 @@ func uncle(rbn *RBNode) *RBNode {
 - 代码实现
     ```go
     func insertCase2(node *RBNode) {
-
+        node = parent(node)
+        rotateLeft(node)
+        insertCase3(node)
     }
     ```
 
@@ -239,7 +258,9 @@ func uncle(rbn *RBNode) *RBNode {
 - 代码实现
     ```go
     func insertCase3(node *RBNode) {
-
+        rotateRight(grandParent(node))
+        parent(node).color = BLACK
+        sibling(node).color = RED
     }
     ```
 
